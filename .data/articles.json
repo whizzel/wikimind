@@ -1,0 +1,20 @@
+{
+  "reinforcement learning": {
+    "topic": "Reinforcement learning",
+    "article": "Reinforcement learning is a subfield of **machine learning** that involves an **agent** learning to take actions in an **environment** to maximize a **reward**. It is a key area of research in artificial intelligence, with applications in fields such as robotics, game playing, and autonomous vehicles.\n\n## History\nThe concept of reinforcement learning has been around since the 1950s, but it wasn't until the 1980s that it started to gain significant attention. However, information on the specific milestones and key events in the history of reinforcement learning is not available.\n\n## Key Concepts\nReinforcement learning involves several key concepts, including the **agent**, **environment**, **actions**, **states**, and **rewards**. The **agent** learns to take **actions** in the **environment** to maximize the **reward**. The **environment** responds to the **agent's** actions with a new **state** and a **reward**. However, detailed information on these concepts is not provided.\n\n## Applications\nReinforcement learning has been applied to various fields, including robotics, game playing, and autonomous vehicles. However, specific examples of these applications are not available.\n\n## Notable Entities\nInformation on notable entities related to reinforcement learning, such as researchers, organizations, or specific projects, is not provided.\n\n## Key Entities\n* **Agent**: interacts with the **Environment**\n* **Environment**: responds to the **Agent's** actions\nNote: The entity graph is not fully populated, and relationships between entities are limited.",
+    "sourceIds": [
+      "e1907f65acb4e07ccd620977eee742f8",
+      "bcb75bd30b61de857cee68030cda1612"
+    ],
+    "timestamp": 1778957647713
+  },
+  "human": {
+    "topic": "human",
+    "article": "A **human** is a member of the species Homo sapiens, characterized by a complex biology, cognitive abilities, and a capacity for culture and society. Understanding humans is crucial for various fields, including biology, psychology, sociology, and anthropology, as it provides insights into the nature of human existence, behavior, and interactions.\n\n## Definition and Characteristics\nThe term **human** refers to an individual of the species Homo sapiens, which is a part of the family Hominidae. However, information on the specific characteristics, biology, and evolution of humans is not available in the provided context.\n\n## History\nThere is no information available on the history of humans in the provided context.\n\n## Key Concepts\nNo key concepts related to humans are present in the provided context.\n\n## Applications\nThe study of humans has numerous applications in fields such as medicine, psychology, and social sciences, but specific details are not available in the provided context.\n\n## Notable Entities\nNo notable human entities are mentioned in the provided context.\n\n## Key Entities\nThere are no entities or graph relationships available in the provided context to list in this section.",
+    "sourceIds": [
+      "9d4fca3d7b53504a2f0e5304b312169f",
+      "0a67c1f47e9bb4f5a3553ed87a0f83a4"
+    ],
+    "timestamp": 1778957953064
+  }
+}
