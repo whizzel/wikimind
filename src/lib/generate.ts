@@ -11,12 +11,12 @@ const MODEL = "llama-3.3-70b-versatile"; // fast + smart, free tier generous
 
 function buildContext(recall: RecallResult): string {
     const chunks = recall.chunks
-        .map((c, i) => `[Chunk ${i + 1}]\n${c.content}`)
+        .map((c, i) => `[Source ${i + 1}]\n${c.content}`)
         .join("\n\n---\n\n");
 
     const relations = recall.graph_context.chunk_relations
         .flatMap((cr) => cr.relations)
-        .slice(0, 30)
+        .slice(0, 50)
         .map((r) => `${r.entity} → ${r.relation} → ${r.target}`)
         .join("\n");
 
@@ -37,27 +37,30 @@ export async function generateArticle(
             {
                 role: "system",
                 content:
-                    "You are WikiMind — an AI that writes structured, encyclopedic articles grounded in retrieved knowledge. You write only in clean Markdown. No preamble, no commentary, just the article.",
+                    "You are WikiMind — an advanced AI that compiles highly structured, encyclopedic articles strictly grounded in retrieved knowledge. You write only in clean Markdown. No preamble, no conversational filler, just the requested article.",
             },
             {
                 role: "user",
-                content: `Write a comprehensive Wikipedia-style article about: **${topic}**
+                content: `Write a comprehensive, highly-structured Wikipedia-style article about: **${topic}**
 
-Use ONLY the following retrieved context. Do not hallucinate. If information is missing, say so.
+Use ONLY the following retrieved context. Do not hallucinate. If information is missing, simply omit it.
 
 ${context}
 
 ---
 
-Format requirements:
-- A concise opening paragraph (what it is, why it matters)
-- ## sections for major themes (e.g. History, Key Concepts, Applications, Notable Entities)
-- **Bold** for first use of key terms
-- Bullet lists only for genuinely list-like content
-- A ## Key Entities section at the end listing main entities and their graph relationships
-- Tone: encyclopedic, flat, factual — no filler words
+**Strict Format Requirements:**
 
-Output only the article markdown, nothing else.`,
+1. **Infobox**: Start the article with a Markdown table acting as an Infobox. It should summarize the 4-6 most critical facts, dates, or primary entities at a glance.
+2. **Opening**: A concise opening paragraph explaining what the topic is and why it matters.
+3. **Sections**: Use \`##\` sections for major themes (e.g., History, Key Concepts, Methodology, Applications).
+4. **Citations**: You MUST cite your claims using inline brackets pointing to the Source Chunks (e.g., \`[1]\`, \`[2]\`). Every factual claim must be cited.
+5. **Knowledge Graph**: Create a \`## Knowledge Graph & Relationships\` section. Synthesize the provided Entity Graph into a readable, analytical summary of how the main entities connect.
+6. **References**: End the article with a \`## References\` section listing the sources you cited (e.g., \`- [1] Source 1: <brief description of what chunk 1 contained>\`).
+7. **Styling**: **Bold** the first use of key terms. Use bullet lists only for genuinely list-like content.
+8. **Tone**: Encyclopedic, neutral, flat, and factual.
+
+Output ONLY the raw markdown of the article.`,
             },
         ],
     });
@@ -81,7 +84,7 @@ export async function answerQuestion(
         messages: [
             {
                 role: "system",
-                content: `You are WikiMind, a knowledgeable assistant with access to a knowledge graph about "${topic}". Answer concisely using only the provided context. Be direct and factual.`,
+                content: `You are WikiMind, a knowledgeable assistant with access to an entity graph and knowledge chunks about "${topic}". Answer concisely using ONLY the provided context. Be direct, factual, and strictly grounded.`,
             },
             {
                 role: "user",
@@ -89,7 +92,10 @@ export async function answerQuestion(
 
 ${context}
 
-Answer in 2-4 paragraphs max. Cite chunks by number when relevant (e.g. [Chunk 3]).`,
+**Requirements:**
+- Answer in 2-4 paragraphs max.
+- You MUST cite the provided chunks using inline brackets (e.g., [1], [2]) when making factual claims.
+- Do not hallucinate. If the context does not contain the answer, say so.`,
             },
         ],
     });

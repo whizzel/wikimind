@@ -16,5 +16,23 @@
       "0a67c1f47e9bb4f5a3553ed87a0f83a4"
     ],
     "timestamp": 1778957953064
+  },
+  "crispr gene editing": {
+    "topic": "CRISPR gene editing",
+    "article": "CRISPR gene editing is a **biotechnology** tool that allows for precise modifications to an organism's **DNA**. It has revolutionized the field of genetics and has the potential to transform the treatment and prevention of genetic diseases.\n\n## History\nThe discovery of the **CRISPR-Cas9** system is attributed to the study of bacterial defense mechanisms. However, information on the specific timeline and key events in the development of CRISPR gene editing is not available in the provided context.\n\n## Key Concepts\n**CRISPR** stands for Clustered Regularly Interspaced Short Palindromic Repeats, which are segments of DNA that contain repeating sequences. The **CRISPR-Cas9** system consists of two main components: the CRISPR array and the Cas9 **enzyme**. The CRISPR array is used to locate the target sequence, while the Cas9 enzyme cuts the DNA at the targeted location. However, detailed information on the mechanisms and processes involved in CRISPR gene editing is not provided.\n\n## Applications\nThe potential applications of CRISPR gene editing are vast, but specific information on the current uses and future prospects of this technology is not available in the provided context.\n\n## Key Entities\n* CRISPR: related to **biotechnology**, **DNA**, **CRISPR-Cas9**\n* Cas9: related to **enzyme**, **CRISPR-Cas9**\n* DNA: related to **biotechnology**, **CRISPR**, **CRISPR-Cas9** \n* CRISPR-Cas9: related to **biotechnology**, **CRISPR**, **Cas9**, **enzyme**",
+    "sourceIds": [
+      "e606775f92aa4cfd83dd6b84a24bf3da",
+      "d09be5c3ecd67faf26983282d5bc3c9c"
+    ],
+    "timestamp": 1778959599247
+  },
+  "dark matter": {
+    "topic": "Dark matter",
+    "article": "Dark matter is a hypothetical form of matter that is thought to exist in the universe but has not been directly observed. It is a crucial concept in understanding the structure and evolution of the universe, as its presence can be inferred through its gravitational effects on visible matter and the large-scale structure of the universe.\n\n## History\nThe concept of **dark matter** was first proposed by Swiss astrophysicist Fritz Zwicky in the 1930s, as a way to explain the observed discrepancies between the predicted and actual masses of galaxy clusters. Since then, a large body of observational evidence has been accumulated to support the existence of dark matter.\n\n## Key Concepts\nThe existence of **dark matter** is inferred through its gravitational effects on visible matter, such as the rotation curves of galaxies and the distribution of galaxy clusters. The **cosmological principle** states that the universe is homogeneous and isotropic on large scales, which is supported by the observed large-scale structure of the universe. However, the details of **dark matter** properties, such as its composition and distribution, are still unknown.\n\n## Applications\nThe study of **dark matter** has important implications for our understanding of the universe, including the formation and evolution of galaxies, the distribution of matter and energy on large scales, and the ultimate fate of the universe. However, information on specific applications is missing.\n\n## Notable Theories\nSeveral theories have been proposed to explain the nature of **dark matter**, including **WIMPs** (Weakly Interacting Massive Particles) and **axions**. However, more information on these theories is needed.\n\n## Key Entities\n* Dark matter: \n  + related to: cosmological principle, WIMPs, axions \n  + inferred through: gravitational effects on visible matter \n  + studied in the context of: galaxy clusters, rotation curves of galaxies \nNote: The entity graph is incomplete, and more information is needed to fully describe the relationships between these entities.",
+    "sourceIds": [
+      "a41d737326f1774fe3f504f6d65d6867",
+      "7539ae0aa24a955104082d4332010d0b"
+    ],
+    "timestamp": 1778961557176
   }
 }

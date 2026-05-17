@@ -1,6 +1,6 @@
 // app/api/recall/route.ts
 // Two modes:
-//   POST { topic, question, userId }  → answer a question via HydraDB recall + Claude
+//   POST { topic, question, userId }  → answer a question via HydraDB recall + Groq
 //   POST { topic, userId }            → recall context for a topic (no question)
 
 import { NextRequest, NextResponse } from "next/server";

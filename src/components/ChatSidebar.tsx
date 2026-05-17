@@ -1,6 +1,6 @@
 "use client";
 // components/ChatSidebar.tsx
-// Q&A chat panel — each question recalls from HydraDB and answers with Claude
+// Q&A chat panel — each question recalls from HydraDB and answers with Groq
 
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -18,12 +18,14 @@ interface Props {
     className?: string;
 }
 
-const SUGGESTED = [
-    "What are the key concepts?",
-    "Who are the main entities involved?",
-    "What are the most important relationships?",
-    "Summarize in 3 bullet points",
-];
+function getSuggested(topic: string) {
+    return [
+        `What are the key concepts of ${topic}?`,
+        `Who are the main entities involved in ${topic}?`,
+        `What are the most important relationships in ${topic}?`,
+        `Summarize ${topic} in 3 bullet points`,
+    ];
+}
 
 export function ChatSidebar({ topic, userId, className }: Props) {
     const [messages, setMessages] = useState<Message[]>([]);
@@ -105,7 +107,7 @@ export function ChatSidebar({ topic, userId, className }: Props) {
                             Ask anything about this topic
                         </p>
                         <div className="space-y-2">
-                            {SUGGESTED.map((s) => (
+                            {getSuggested(topic).map((s) => (
                                 <button
                                     key={s}
                                     onClick={() => ask(s)}
@@ -196,7 +198,7 @@ export function ChatSidebar({ topic, userId, className }: Props) {
                     </button>
                 </div>
                 <p className="font-mono text-[9px] text-slate-700 mt-1.5">
-                    Powered by HydraDB recall + Claude
+                    Powered by HydraDB recall + Groq
                 </p>
             </div>
         </div>

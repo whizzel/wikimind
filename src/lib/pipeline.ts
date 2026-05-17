@@ -43,14 +43,28 @@ async function fetchUrl(url: string): Promise<string> {
 /** Use Wikipedia API for topic-based lookups */
 async function fetchWikipedia(topic: string): Promise<string> {
     const encoded = encodeURIComponent(topic.replace(/ /g, "_"));
+    const headers = { 
+        Accept: "application/json",
+        "User-Agent": "WikiMind/1.0 (https://github.com/whizzel/wikimind)"
+    };
+
     const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encoded}`;
-    const res = await fetch(url, { headers: { Accept: "application/json" } });
-    if (!res.ok) throw new Error(`Wikipedia not found for: ${topic}`);
+    const res = await fetch(url, { headers });
+    
+    if (!res.ok) {
+        if (res.status === 404) throw new Error(`Wikipedia article not found for: "${topic}". Try a different topic or use a custom URL.`);
+        throw new Error(`Wikipedia API Error (${res.status}): Failed to fetch summary.`);
+    }
     const data = await res.json();
 
     // Also fetch the full extract
     const fullUrl = `https://en.wikipedia.org/w/api.php?action=query&titles=${encoded}&prop=extracts&explaintext=true&format=json&origin=*`;
-    const fullRes = await fetch(fullUrl);
+    const fullRes = await fetch(fullUrl, { headers });
+    
+    if (!fullRes.ok) {
+         throw new Error(`Wikipedia API Error (${fullRes.status}): Failed to fetch full article text.`);
+    }
+
     const fullData = await fullRes.json();
     const pages = fullData.query.pages;
     const page = pages[Object.keys(pages)[0]];
@@ -174,7 +188,7 @@ export async function runPipeline(
         }
 
         // ── Step 6: Generate ───────────────────────────────────────────────────
-        onEvent({ step: "generate", message: "Generating article with Claude..." });
+        onEvent({ step: "generate", message: "Generating article with Groq..." });
         const article = await generateArticle(topic, recallResult);
         onEvent({ step: "generate", message: "Article generated ✓" });
 

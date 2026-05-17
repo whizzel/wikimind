@@ -139,7 +139,7 @@ export async function ingestText(
 export async function waitForProcessing(
     tenantId: string,
     sourceId: string,
-    maxWait = 60_000
+    maxWait = 120_000
 ): Promise<void> {
     const start = Date.now();
     while (Date.now() - start < maxWait) {

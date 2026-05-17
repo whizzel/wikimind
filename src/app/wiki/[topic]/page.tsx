@@ -118,7 +118,7 @@ export default function WikiPage() {
     }
 
     return (
-        <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
+        <div className="h-screen bg-slate-950 text-slate-100 flex flex-col">
             {/* Top nav */}
             <nav className="border-b border-slate-800 px-6 py-3 flex items-center justify-between shrink-0">
                 <div className="flex items-center gap-4">
