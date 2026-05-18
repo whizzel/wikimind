@@ -49,7 +49,7 @@ async function fetchWikipedia(topic: string): Promise<string> {
     };
 
     const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encoded}`;
-    const res = await fetch(url, { headers });
+    const res = await fetch(url, { headers, cache: "no-store" });
     
     if (!res.ok) {
         if (res.status === 404) throw new Error(`Wikipedia article not found for: "${topic}". Try a different topic or use a custom URL.`);
@@ -59,7 +59,7 @@ async function fetchWikipedia(topic: string): Promise<string> {
 
     // Also fetch the full extract
     const fullUrl = `https://en.wikipedia.org/w/api.php?action=query&titles=${encoded}&prop=extracts&explaintext=true&format=json&origin=*`;
-    const fullRes = await fetch(fullUrl, { headers });
+    const fullRes = await fetch(fullUrl, { headers, cache: "no-store" });
     
     if (!fullRes.ok) {
          throw new Error(`Wikipedia API Error (${fullRes.status}): Failed to fetch full article text.`);
@@ -126,7 +126,7 @@ export async function runPipeline(
         }
 
         // Truncate very long articles to keep ingestion fast
-        const truncated = rawText.slice(0, 40_000);
+        const truncated = rawText.slice(0, 15_000);
 
         // ── Step 2: Chunk ──────────────────────────────────────────────────────
         onEvent({ step: "chunk", message: "Chunking content..." });

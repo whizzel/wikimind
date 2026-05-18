@@ -53,7 +53,7 @@ ${context}
 
 1. **Infobox**: Start the article with a Markdown table acting as an Infobox. It should summarize the 4-6 most critical facts, dates, or primary entities at a glance.
 2. **Opening**: A concise opening paragraph explaining what the topic is and why it matters.
-3. **Sections**: Use \`##\` sections for major themes (e.g., History, Key Concepts, Methodology, Applications).
+3. **Sections**: Use \`##\` sections for major themes (e.g., History, Key Concepts, Methodology, Applications). **CRITICAL**: If the retrieved context does not contain information for a specific theme, DO NOT include that section at all. Never write "Information is not available." Just omit the section entirely.
 4. **Citations**: You MUST cite your claims using inline brackets pointing to the Source Chunks (e.g., \`[1]\`, \`[2]\`). Every factual claim must be cited.
 5. **Knowledge Graph**: Create a \`## Knowledge Graph & Relationships\` section. Synthesize the provided Entity Graph into a readable, analytical summary of how the main entities connect.
 6. **References**: End the article with a \`## References\` section listing the sources you cited (e.g., \`- [1] Source 1: <brief description of what chunk 1 contained>\`).

@@ -17,6 +17,7 @@ async function post<T>(path: string, body: unknown): Promise<T> {
         method: "POST",
         headers: headers(),
         body: JSON.stringify(body),
+        cache: "no-store",
     });
     if (!res.ok) {
         const err = await res.text();
@@ -28,6 +29,7 @@ async function post<T>(path: string, body: unknown): Promise<T> {
 async function get<T>(path: string): Promise<T> {
     const res = await fetch(`${BASE_URL}${path}`, {
         headers: headers(),
+        cache: "no-store",
     });
     if (!res.ok) {
         const err = await res.text();
@@ -127,6 +129,7 @@ export async function ingestText(
         method: "POST",
         headers: { Authorization: `Bearer ${API_KEY}` }, // no Content-Type — let browser set boundary
         body: formData,
+        cache: "no-store",
     });
     if (!res.ok) {
         const err = await res.text();
@@ -139,7 +142,7 @@ export async function ingestText(
 export async function waitForProcessing(
     tenantId: string,
     sourceId: string,
-    maxWait = 120_000
+    maxWait = 180_000
 ): Promise<void> {
     const start = Date.now();
     while (Date.now() - start < maxWait) {
